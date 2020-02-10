@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'TeamController@index');//prikazujemo sve timove
+
+Route::get('/teams/{id}', 'TeamController@show');//prikazujemo jedan izabrani tim
+
+Route::get('/players/{id}', 'PlayerController@show');//prikazujemo igraca koji je potreban
+
