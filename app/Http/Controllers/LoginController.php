@@ -10,7 +10,7 @@ class LoginController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest')->except('destroy');
     }
 
     public function create()
@@ -18,20 +18,27 @@ class LoginController extends Controller
         return view('users.login');
     }
     public function store()
-        {
-        if (auth()->attempt(request(['email', 'password'])
-        )){
+    {//ovde moram odrditi validaciju da ako korisnin ne unese nista dobije odgovarajucu poruku ubbaciti if sa promenjivom
+        $user = \App\User::where('email',request('email'))->get();
+        if($user->is_verified){
+            if (auth()->attempt(request(['email', 'password'])
+            )){
 
-            return redirect('/');
-        }
+                return redirect('/');
+            }
+        }else{
 
             return back()->withErrors([
-                'message' => 'Password or email is not correct.'
+                'message' => 'Please check your email and verified your profile.'
             ]);
+        }
+                return back()->withErrors([
+                    'message' => 'Password or email is not correct.'
+                ]);
     }
     public function destroy()
     {
-        Auth::logout();
+        auth()->logout();
         
         return redirect('/login');
     }

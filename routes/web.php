@@ -27,5 +27,6 @@ Route::post('/login', 'LoginController@store');//proveramo podatke postojeceg ko
 
 Route::post('/logout', 'LoginController@destroy')->name('logout');//proveramo podatke postojeceg korisnika
 
+Route::get('/verified/{id}', 'RegisterController@verified');//verifikujemo korisnika
 
 
