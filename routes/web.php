@@ -17,3 +17,15 @@ Route::get('/teams/{id}', 'TeamController@show');//prikazujemo jedan izabrani ti
 
 Route::get('/players/{id}', 'PlayerController@show');//prikazujemo igraca koji je potreban
 
+Route::get('/register', 'RegisterController@create');//odlazimo na register blade
+
+Route::post('/register', 'RegisterController@store');//saljemo podatke u bazu i stvaramo novog korisnika
+
+Route::get('/login', 'LoginController@create')->name('login');//odlazimo na login blade
+
+Route::post('/login', 'LoginController@store');//proveramo podatke postojeceg korisnika
+
+Route::post('/logout', 'LoginController@destroy')->name('logout');//proveramo podatke postojeceg korisnika
+
+
+

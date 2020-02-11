@@ -21,7 +21,7 @@
 <body>
 
 <header>
-{{-- @include('movies.navbar') --}}
+@include('navbar')
     <div class="blog-header">
         <div class="container">
             <h1 class="blog-title">@yield('blog-title')</h1>

@@ -8,7 +8,8 @@ class Team extends Model
 {
     protected $guarded =['id'];
 
-    public function players(){
+    public function players()
+    {
         return $this->hasMany(Player::class);
     }
 
