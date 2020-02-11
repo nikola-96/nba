@@ -16,7 +16,7 @@ class TeamController extends Controller
     {
         $teams = \App\Team::all();
 
-        return view('teams.index', compact(['teams']));//vracamo niz sa zeljenim timovima
+        return view('teams.index', compact('teams'));//vracamo niz sa zeljenim timovima
     }
     public function show($team_id)
     {

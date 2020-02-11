@@ -11,5 +11,12 @@
                 <li><a href="/players/{{ $player->id }}">{{ $player->first_name }}</a></li>
             @endforeach
         </ul>
-
+        <div class="container"> 
+            <p><br><strong>Comments:</strong><br></p>
+                @if(count($team->comments)) {{-- ukoliko u bazi postoje komentari ispisace se --}}
+                @foreach ($team->comments as $comment)
+                    <p>{{$comment->content}}</p>
+                @endforeach
+            @endif
+        </div>
 @endsection

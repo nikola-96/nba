@@ -12,9 +12,14 @@ class Team extends Model
     {
         return $this->hasMany(Player::class);
     }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
 
     public static function getTeamById($team_id)
     {
-        return self::where('id', $team_id)->with('players')->first();//vracamo trazeni tim sa igracima
+        return self::where('id', $team_id)->with('players', 'comments' )->first();//vracamo trazeni tim sa igracima i komentarima
     }
 }
