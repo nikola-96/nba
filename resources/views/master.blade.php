@@ -21,9 +21,9 @@
 <body>
 
 <header>
-@include('navbar')
     <div class="blog-header">
         <div class="container">
+            @include('navbar')
             <h1 class="blog-title">@yield('blog-title')</h1>
             <p class="lead blog-description">@yield('description')</p>
         </div>
