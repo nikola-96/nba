@@ -19,7 +19,7 @@ class LoginController extends Controller
     }
     public function store()
     {//ovde moram odrditi validaciju da ako korisnin ne unese nista dobije odgovarajucu poruku ubbaciti if sa promenjivom
-        $user = \App\User::where('email',request('email'))->get();
+        $user = \App\User::where('email',request('email'))->first();
         if($user->is_verified){
             if (auth()->attempt(request(['email', 'password'])
             )){

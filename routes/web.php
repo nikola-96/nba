@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Middleware;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,5 +30,10 @@ Route::post('/login', 'LoginController@store');//proveramo podatke postojeceg ko
 Route::post('/logout', 'LoginController@destroy')->name('logout');//proveramo podatke postojeceg korisnika
 
 Route::get('/verified/{id}', 'RegisterController@verified');//verifikujemo korisnika
+
+Route::post('/teams/{team_id}', 'CommentController@store')->middleware('words');//prosledjujemo komentar u bazu i vrsimo proveru zabranjenih reci
+
+Route::get('/forbidden_comment', 'CommentController@show');//ukoliko postoje zabranjene reci u komentaru, prikazujemo ih 
+
 
 
