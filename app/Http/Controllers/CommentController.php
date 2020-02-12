@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mail\CommentReceived;
+use Illuminate\Support\Facades\Mail;
 
 class CommentController extends Controller
 {
@@ -19,6 +21,9 @@ class CommentController extends Controller
         $comment->team_id = $team_id;
         $comment->save();
         
+        $team = \App\Team::getTeamById($team_id);
+        Mail::to($team->email)->send(new CommentReceived($team));
+
         return redirect()->back();
     }
 }

@@ -18,8 +18,12 @@ class Team extends Model
     }
 
 
-    public static function getTeamById($team_id)
+    public static function getTeamAndPlayes($team_id)
     {
         return self::where('id', $team_id)->with('players', 'comments' )->first();//vracamo trazeni tim sa igracima i komentarima
+    }
+    public static function getTeamById($team_id){
+        
+        return self::find($team_id);
     }
 }
