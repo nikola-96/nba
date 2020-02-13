@@ -21,7 +21,9 @@ class TeamController extends Controller
     public function show($team_id)
     {
         $team = \App\Team::getTeamAndPlayes($team_id); //punimo promenjivu trazenim timom
-        
-        return view('teams.show', compact(['team']));//renderujemo trazeni tim
+        $news = \App\News::all();
+        // $team->news()->attach($news);
+
+        return view('teams.show', compact('team'));//renderujemo trazeni tim
     }
 }

@@ -7,6 +7,9 @@
     <li>  
         <a class="nav-link ml-auto" href="/news">News</a>
     </li>
+    <li>
+        <a class="nav-link ml-auto" href="/create/news">Add News</a>
+    </li>
     @if(Auth::check())
         <li class="nav-item  ml-auto">
             <a class="nav-link ml-auto" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">

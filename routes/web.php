@@ -30,4 +30,8 @@ Route::get('/forbidden_comment', 'CommentController@show');//ukoliko postoje zab
 
 Route::get('/news', 'NewsController@index');//prikazuje sve novosti iz baze
 Route::get('/news/{id}', 'NewsController@show');//prikazuje trazenu vest koju je korisnik izabrao
+Route::get('/news/team/{id}', 'NewsController@showTeamNews');
+Route::get('/create/news','NewsController@create');
+Route::post('/create/news','NewsController@store');
+
 

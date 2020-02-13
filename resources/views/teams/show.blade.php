@@ -5,6 +5,7 @@
         <p class="blog-post-meta" >The email is: {{ $team->email }}</p>
         <p class="blog-post-meta" >The adress is: {{ $team->address }}</p>
         <p class="blog-post-meta" >The city: {{ $team->city }}</p>
+        <p class="blog-post-meta" >Show all <a href="/news/team/{{ $team->id }}">news</a></p>
         <strong><p class="blog-post-meta" >Players:</p></strong>
         <ul>
             @foreach ($team->players as $player)
