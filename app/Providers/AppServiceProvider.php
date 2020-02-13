@@ -23,6 +23,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('sidebar', function($view)
+        {
+            $teams = \App\Team::all();
+
+            $view->with(compact('teams'));
+        });
+
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\NewsRequest; 
 use App\News;
 use App\Team;
+use Session;
 
 class NewsController extends Controller
 {
@@ -38,6 +39,7 @@ class NewsController extends Controller
         $user_id = auth()->user()->id;
         $news = News::create(array_merge($request->except('teams'),['user_id' => $user_id]));
         $news->teams()->attach(request('teams'));
+        Session::flash('message', 'Thank you for publishing article on www.nba.com.'); 
 
         return redirect('/news');
     }
